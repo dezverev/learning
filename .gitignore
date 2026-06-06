@@ -1,0 +1,9 @@
+# Rust build artifacts (compiled output, can always be regenerated)
+/target
+**/target
+
+# Backtrace / debug symbols
+*.pdb
+
+# macOS
+.DS_Store
