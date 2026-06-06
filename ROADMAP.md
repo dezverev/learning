@@ -11,8 +11,8 @@ A project-based path to solid Rust foundations, taught by contrast with C#.
 
 | # | Module | Focus (vs C#) | Mini-project | Status |
 |---|--------|---------------|--------------|--------|
-| 0 | Toolchain & Cargo | `dotnet` CLI → `cargo` | `00-hello-cargo` | [~] |
-| 1 | Syntax & control flow | everything is an *expression*; `let`/`mut`/shadowing | `01-temperature-converter` | [ ] |
+| 0 | Toolchain & Cargo | `dotnet` CLI → `cargo` | `00-hello-cargo` | [x] |
+| 1 | Syntax & control flow | everything is an *expression*; `let`/`mut`/shadowing | `01-temperature-converter` | [~] |
 | 2 | Ownership & borrowing | replaces the GC | string/slice drills | [ ] |
 | 3 | Structs, enums, pattern matching | sum types + `match`; `Option` kills `null` | shapes model | [ ] |
 | 4 | Error handling | `Result`/`?` replace exceptions | file-reading tool | [ ] |
@@ -33,4 +33,5 @@ _Later, by interest: concurrency & fearless threading → async/`tokio`._
 
 ## Progress log
 <!-- newest first -->
+- **2026-06-06** — ✅ Module 0 done: `00-hello-cargo` builds/runs. Covered cargo vs dotnet, Cargo.toml, editions, macros (`!`), debug/release, `check`/`clippy`/`fmt`, target/lockfile. Starting Module 1.
 - **2026-06-06** — Repo + tracker set up. Toolchain verified (1.94.0). Starting Module 0.
