@@ -32,3 +32,35 @@ cargo clippy --manifest-path 00-hello-cargo/Cargo.toml -- -D warnings
 ```
 
 Repeat those commands with the other module `Cargo.toml` paths as needed.
+
+## Neovim Setup
+
+The `nvim/` folder contains the plugin-free Neovim config used to work through these modules. Two ways to use it:
+
+**Try it without touching your own config** — from the repo root:
+
+```sh
+XDG_CONFIG_HOME=$(pwd) nvim
+```
+
+Neovim resolves its config as `$XDG_CONFIG_HOME/nvim/init.lua`, which is this repo's `nvim/` folder. Nothing is installed and your own setup stays untouched.
+
+**Adopt it** — back up your existing config first, then symlink:
+
+```sh
+mv ~/.config/nvim ~/.config/nvim.bak
+ln -s "$(pwd)/nvim" ~/.config/nvim
+```
+
+### What you get
+
+- `F2` — toggle a beginner cheat sheet with basic vim survival commands
+- `Space cc` / `Space cr` / `Space ct` — `cargo check` / `run` / `test` for the project the current file belongs to, in a bottom terminal split
+- rust-analyzer with clippy diagnostics and format-on-save for `.rs` files
+- Standard LSP keymaps: `gd` definition, `gr` references, `K` hover docs, `Space rn` rename, `Space ca` code action, `[d` / `]d` previous/next diagnostic, `Space d` diagnostic float, `Space f` format
+- Sensible defaults: relative line numbers, 4-space indent, smart-case search, true color
+
+### Prerequisites
+
+- Neovim **0.11+** (the config uses `vim.lsp.config` / `vim.lsp.enable`)
+- `rust-analyzer` on your PATH: `rustup component add rust-analyzer`
