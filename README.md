@@ -10,6 +10,7 @@ Small Rust projects and notes for building Rust foundations with comparisons to 
 | 1 | Syntax, functions, expressions, and control flow | `01-temperature-converter` |
 | 2 | Ownership and borrowing | `02-ownership` |
 | 3 | Structs, enums, and pattern matching | `03-shapes` |
+| 4 | Error handling with `Result` and `?` | `04-file-reader` |
 
 The full learning path and progress log live in [ROADMAP.md](ROADMAP.md). Short reference notes live in [RUST_CHEATSHEET.md](RUST_CHEATSHEET.md).
 
@@ -22,6 +23,7 @@ cargo test --manifest-path 00-hello-cargo/Cargo.toml
 cargo test --manifest-path 01-temperature-converter/Cargo.toml
 cargo test --manifest-path 02-ownership/Cargo.toml
 cargo test --manifest-path 03-shapes/Cargo.toml
+cargo test --manifest-path 04-file-reader/Cargo.toml
 ```
 
 Formatting and linting:
