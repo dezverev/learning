@@ -194,6 +194,30 @@ Rust makes you handle both Some and None.
 That is how Rust avoids silent null bugs.
 ```
 
+`expect()` is a shortcut for tests when you believe an `Option` must be `Some`.
+
+```rust
+let scaled_rect = scale(&rect, 2).expect("factor 2 should return a scaled shape");
+```
+
+That is like writing:
+
+```rust
+let scaled_rect = match scale(&rect, 2) {
+    Some(shape) => shape,
+    None => panic!("factor 2 should return a scaled shape"),
+};
+```
+
+After `expect()`, `scaled_rect` is a `Shape`, not an `Option<Shape>`.
+
+```rust
+assert_eq!(scaled_rect.area(), 200);
+```
+
+Use `expect()` in tests when `None` means the test should fail. In regular app code,
+prefer `match`, `if let`, or returning the `Option` upward.
+
 ## Cargo
 
 Cargo package names cannot start with a number.
