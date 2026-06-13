@@ -52,6 +52,7 @@ fn main() {
     println!("sqr area : {}", sqr.area());
 
     let circ = Shape::Circle { radius: 5 };
+
     println!("circ area : {}", circ.area());
 
     let rect2 = scale(&rect, 2);
@@ -84,5 +85,59 @@ mod tests {
     fn circle_area_returns_correct_result() {
         let cir = Shape::Circle { radius: 3 };
         assert_eq!(cir.area(), 27);
+    }
+
+    #[test]
+    fn rect_scales_properly() {
+        let rect = Shape::Rectangle {
+            width: 10,
+            height: 5,
+        };
+
+        let scaled_rect = scale(&rect, 2).expect("should be a shape");
+        assert_eq!(scaled_rect.area(), 200);
+    }
+
+    #[test]
+    fn rect_zero_returns_none() {
+        let rect = Shape::Rectangle {
+            width: 10,
+            height: 5,
+        };
+
+        let scaled_rect = scale(&rect, 0);
+        assert!(scaled_rect.is_none());
+    }
+
+    #[test]
+    fn square_scales_properly() {
+        let square = Shape::Square { size: 2 };
+
+        let scaled_square = scale(&square, 2).expect("some:shape");
+        assert_eq!(scaled_square.area(), 16);
+    }
+
+    #[test]
+    fn square_zero_returns_none() {
+        let square = Shape::Square { size: 2 };
+
+        let scaled_sq = scale(&square, 0);
+        assert!(scaled_sq.is_none());
+    }
+
+    #[test]
+    fn circle_scales_properly() {
+        let circle = Shape::Circle { radius: 3 };
+
+        let scaled_circle = scale(&circle, 2).expect("should be a shape");
+        assert_eq!(scaled_circle.area(), 108);
+    }
+
+    #[test]
+    fn circle_zero_returns_none() {
+        let circle = Shape::Circle { radius: 3 };
+
+        let scaled_circle = scale(&circle, 0);
+        assert!(scaled_circle.is_none());
     }
 }
